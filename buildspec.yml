@@ -3,6 +3,7 @@ env:
   variables:
     IMAGE_REPO_NAME: "sample"
     IMAGE_TAG: "v1"
+    AWS_ACCOUNT_ID: "347663384581"
 phases:
   install:
     runtime-versions:
