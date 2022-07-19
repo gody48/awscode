@@ -1,30 +1,15 @@
 version: 0.0
 os: linux
-files:
-  - source: /index.html
-    destination: /var/www/html/
 hooks:
   ApplicationStop:
-    - location: scripts/stop_server.sh
-      timeout: 300
+    - location: scripts/kill_container.sh
+      timeout: 20
       runas: root
-
   AfterInstall:
-    - location: scripts/after_install.sh
-      timeout: 300
+    - location: scripts/load_image.sh
+      timeout: 10
       runas: root
-
-  BeforeInstall:
-    - location: scripts/install_dependencies.sh
-      timeout: 300
-      runas: root
-
   ApplicationStart:
-    - location: scripts/start_server.sh
-      timeout: 300
+    - location: scripts/start_container.sh
+      timeout: 10
       runas: root
-
-  ValidateService:
-    - location: scripts/validate_service.sh
-      timeout: 300
-  
